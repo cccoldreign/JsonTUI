@@ -19,4 +19,4 @@ $ make
     --vert-c
     --vert-b
 
-    ![](data/jsonTab.gif)
+    ![](jsonTab.gif)
