@@ -19,4 +19,4 @@ $ make
     --vert-c
     --vert-b
 
-    ![Alt text](jsonTab.gif)
+    ![myfile](jsonTab.gif)

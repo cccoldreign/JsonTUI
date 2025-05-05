@@ -45,10 +45,8 @@ add_executable(TUI
     src/Vert.cpp
     src/Navy.cpp
 )
-#add_compile_options(GUI PRIVATE --table /Users/coldreign/code/Study/c++/JsonUI/Example/Example4.json)
-include_directories(include)
 
-# target_include_directories(GUI PRIVATE src)
+include_directories(include)
 
 target_link_libraries(TUI
   PRIVATE ftxui::screen
@@ -56,5 +54,3 @@ target_link_libraries(TUI
   PRIVATE ftxui::component
   PRIVATE nlohmann_json::nlohmann_json
 )
-
-# target_link_libraries(GUI ${json_SOURCE_DIR}/include/nlohman)
