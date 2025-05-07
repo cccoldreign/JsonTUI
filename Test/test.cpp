@@ -1,7 +1,7 @@
 #include <gtest/gtest.h> 
 #include "JsonRenderer.h"
 #include "Table.h"
-// #include "/Users/coldreign/JsonTUI/src/Table.cpp"
+
 #include <fstream>
 #include <string>
 #include <vector>
@@ -20,7 +20,6 @@ using json = nlohmann::json;
 TEST(TestFileCheck, Change){
     std::string fileEx = "/Users/coldreign/JsonTUI/Example/Example.json";
     std::ifstream file(fileEx);
-    TableJson table;
     ASSERT_TRUE(file.is_open()) << "Failed to open file: " << fileEx;
 
     json j;
@@ -32,14 +31,26 @@ TEST(TestFileCheck, Change){
 
     ASSERT_FALSE(file.is_open()) << "Failed to close file: " << fileEx;
 
-    std::unique_ptr<JsonRenderer> renderer = std::make_unique<TableJson>();
+    TableJson* raw_table = new TableJson();
+    std::unique_ptr<JsonRenderer> renderer(raw_table);
+
     auto screen = ftxui::ScreenInteractive::FitComponent();
     auto component = renderer->render(j, fileEx);
 
-    // Проверка приватной переменной через публичный метод
-    EXPECT_EQ(table.GetSelected(), 0); // Проверяем значение приватной переменной
+    EXPECT_EQ(raw_table->GetSelected(), 0);
+
+    component->OnEvent(Event::ArrowRight);
+    component->OnEvent(Event::ArrowRight);
+    component->OnEvent(Event::ArrowRight);
+
+    component->OnEvent(Event::ArrowDown);
+    component->OnEvent(Event::ArrowDown);
     component->OnEvent(Event::ArrowDown);
     component->OnEvent(Event::ArrowDown);
     component->OnEvent(Event::Return);
+
+    EXPECT_EQ(raw_table->GetSelected(), 2);
+
+
 }
 

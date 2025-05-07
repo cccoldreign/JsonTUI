@@ -180,7 +180,6 @@ private:
     }
 
 public:
-    TableJson() = default;
     ftxui::Component render(const json& json, std::string& filePath) override;
     int GetSelected() const { return selected; }
 };
