@@ -1,69 +1,69 @@
 {
     "catalogs": [
-      {
-        "conditions": "Предложения дейст",
-        "date_end": "2020-06-12",
-        "date_start": "2020-06-05",
-        "id": "1234",
-        "image": "https://re",
-        "is_main": true,
-        "offers": [
-          "11111",
-          "22222",
-          "33333"
-        ],
-        "target_regions": [
-          "Россия, Москва",
-          "Россия, Ярославс",
-          "Россия, Костромс"
-        ]
-      },
-      {
-        "conditions": "Предложения ",
-        "date_end": "2020-06-12",
-        "date_start": "2020-06-05",
-        "id": "5678",
-        "image": "https://re",
-        "is_main": true,
-        "offers": [
-          "22222",
-          "33333"
-        ],
-        "target_shops": [
-          "Владимир, улица Куйбышева, 26К"
-        ]
-      }
+        {
+            "conditions": "Предложения дейст",
+            "date_end": "2020-06-12",
+            "date_start": "2020-06-05",
+            "id": "1234",
+            "image": "https://re",
+            "is_main": true,
+            "offers": [
+                0.0,
+                "22222",
+                "33333"
+            ],
+            "target_regions": [
+                "Россия, Москва",
+                "Россия, Ярославс",
+                "Россия, Костромс"
+            ]
+        },
+        {
+            "conditions": "Предложения ",
+            "date_end": "2020-06-12",
+            "date_start": "2020-06-05",
+            "id": "5678",
+            "image": "https://re",
+            "is_main": true,
+            "offers": [
+                "22222",
+                "33333"
+            ],
+            "target_shops": [
+                "Владимир, улица Куйбышева, 26К"
+            ]
+        }
     ],
     "offers": [
-      {
-        "barcode": "7501031311309",
-        "date_end": "2020-06-10",
-        "date_start": "2020-06-05",
-        "description": "Молоко ",
-        "discount_label": "1+1",
-        "id": "11111",
-        "image": "https://reta",
-        "price_is_from": false,
-        "price_new": 50,
-        "price_old": 100
-      },
-      {
-        "barcode": "3113097501031",
-        "description": "Огурцы маринова",
-        "id": "22222",
-        "image": "https://retaile",
-        "price_is_from": false,
-        "price_new": 70,
-        "price_old": 75
-      },
-      {
-        "barcode": "1097501031133",
-        "description": "Жевательная е",
-        "id": "33333",
-        "image": "https://retailg",
-        "price_is_from": true,
-        "price_new": 10
-      }
+        {
+            "barcode": "7501031311309",
+            "date_end": "2020-06-10",
+            "date_start": "2020-06-05",
+            "description": "Молоко ",
+            "discount_label": "1+1",
+            "id": "11111",
+            "image": "https://reta",
+            "price_is_from": false,
+            "price_new": 50,
+            "price_old": 100
+        },
+        {
+            "barcode": "3113097501031",
+            "description": "Огурцы маринова",
+            "id": "22222",
+            "image": "https://retaile",
+            "price_is_from": false,
+            "price_new": 70,
+            "price_old": 75
+        },
+        {
+            "barcode": "1097501031133",
+            "description": "Жевательная е",
+            "id": "33333",
+            "image": "https://retailg",
+            "price_is_from": true,
+            "price_new": 10
+        }
     ],
     "version": 2
-  }
+}

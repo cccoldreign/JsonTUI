@@ -17,9 +17,10 @@
 using namespace ftxui;
 using json = nlohmann::json;
 
-class JsonRenderer1 : public JsonRenderer {
+class TableJson : public JsonRenderer {
     
 private:
+    friend class TableJsonTest;
     std::vector<std::string> radiobox = {
       "integer",
       "float",
@@ -179,7 +180,9 @@ private:
     }
 
 public:
+    TableJson() = default;
     ftxui::Component render(const json& json, std::string& filePath) override;
+    int GetSelected() const { return selected; }
 };
 
 #endif  

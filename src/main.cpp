@@ -36,7 +36,7 @@ int main(int argc, char* argv[]) {
         file.close();
         
         std::unique_ptr<JsonRenderer> renderer;
-        renderer = std::make_unique<JsonRenderer1>();
+        renderer = std::make_unique<TableJson>();
         auto screen = ScreenInteractive::FitComponent();
         auto component = renderer->render(j, filePath);
         screen.Loop(component);
@@ -59,7 +59,7 @@ int main(int argc, char* argv[]) {
         
         std::unique_ptr<JsonRenderer> renderer;
         if (flag == "--table") {
-            renderer = std::make_unique<JsonRenderer1>();
+            renderer = std::make_unique<TableJson>();
         } else if (flag == "--vert-c") {
             renderer = std::make_unique<JsonRenderer2>(true);
         } else if (flag == "--vert-b") {

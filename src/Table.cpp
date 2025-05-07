@@ -6,7 +6,7 @@
 
 using namespace ftxui;
 
-Component JsonRenderer1::render(const nlohmann::json& json, std::string& filePath) {
+Component TableJson::render(const nlohmann::json& json, std::string& filePath) {
   collectKeys(json, selections);
 
   FillingTabs();

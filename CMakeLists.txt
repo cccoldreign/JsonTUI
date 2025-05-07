@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.18)
 
-project(TUI)
+project(testing)
 
 include(FetchContent)
 
@@ -28,6 +28,8 @@ FetchContent_Declare(ftxui
   GIT_TAG v5.0.0
 )
 
+set(FTXUI_BUILD_TESTS ON CACHE BOOL "" FORCE)
+
 FetchContent_GetProperties(ftxui)
 
 # ftxui_POPULATED
@@ -39,18 +41,34 @@ if(NOT ftxui_POPULATED)
   add_subdirectory(${ftxui_SOURCE_DIR} ${ftxui_BINARY_DIR} EXCLUDE_FROM_ALL)
 endif()
 
-add_executable(TUI 
-    src/main.cpp
+FetchContent_Declare(
+  googletest
+  URL https://github.com/google/googletest/archive/refs/tags/release-1.12.1.zip
+)
+
+# Убедитесь, что Google Test загружен
+FetchContent_MakeAvailable(googletest)
+
+enable_testing()
+
+
+
+add_executable(testing 
+    # src/main.cpp
     src/Table.cpp
-    src/Vert.cpp
-    src/Navy.cpp
+    # src/Vert.cpp
+    # src/Navy.cpp
+    Test/test.cpp
 )
 
 include_directories(include)
 
-target_link_libraries(TUI
+target_link_libraries(testing
+  PRIVATE gtest_main
   PRIVATE ftxui::screen
   PRIVATE ftxui::dom
   PRIVATE ftxui::component
   PRIVATE nlohmann_json::nlohmann_json
 )
+
+add_test(NAME TestFileCheck COMMAND test)
