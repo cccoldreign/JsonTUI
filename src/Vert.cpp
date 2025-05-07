@@ -14,10 +14,10 @@
 using namespace ftxui;
 using json = nlohmann::json;
 
-JsonRenderer2::JsonRenderer2(bool flag1)
+VerticalTab::VerticalTab(bool flag1)
     : flag1_(flag1) {}
 
-Component JsonRenderer2::render(const nlohmann::json& json, std::string& filePath) {
+Component VerticalTab::render(const nlohmann::json& json, std::string& filePath) {
    
 
     size_t max_length = find_max_length(json);

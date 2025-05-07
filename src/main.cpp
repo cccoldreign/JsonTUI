@@ -61,11 +61,11 @@ int main(int argc, char* argv[]) {
         if (flag == "--table") {
             renderer = std::make_unique<TableJson>();
         } else if (flag == "--vert-c") {
-            renderer = std::make_unique<JsonRenderer2>(true);
+            renderer = std::make_unique<VerticalTab>(true);
         } else if (flag == "--vert-b") {
-            renderer = std::make_unique<JsonRenderer2>(false);
+            renderer = std::make_unique<VerticalTab>(false);
         } else if (flag == "--navy") {
-            renderer = std::make_unique<JsonRenderer3>();
+            renderer = std::make_unique<Navy>();
         } else {
             std::cerr << "Invalid flag" << std::endl;
             return 1;

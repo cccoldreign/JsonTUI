@@ -18,7 +18,7 @@ using json = nlohmann::json;
 
 #include "JsonRenderer.h"
 
-class JsonRenderer2 : public JsonRenderer {
+class VerticalTab : public JsonRenderer {
 private:
     std::vector<Color> colors = {
         Color::RGB(0, 0, 0),
@@ -159,7 +159,7 @@ private:
 public:
     bool flag1_;
 
-    JsonRenderer2(bool flag1);
+    VerticalTab(bool flag1);
 
     ftxui::Component render(const nlohmann::json& json, std::string& filePath) override;
 };

@@ -18,7 +18,7 @@ using json = nlohmann::json;
 
 #include "JsonRenderer.h"
 
-class JsonRenderer3 : public JsonRenderer {
+class Navy : public JsonRenderer {
 public:
     void print_value(const json& j, std::vector<std::string>& menu, std::vector<std::string>& value) {
         if (j.is_primitive()) {

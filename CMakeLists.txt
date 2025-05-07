@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.18)
 
-project(testing)
+project(TUI)
 
 include(FetchContent)
 
@@ -46,26 +46,21 @@ FetchContent_Declare(
   URL https://github.com/google/googletest/archive/refs/tags/release-1.12.1.zip
 )
 
-# Убедитесь, что Google Test загружен
 FetchContent_MakeAvailable(googletest)
 
-enable_testing()
+# enable_testing()
 
-
-
-add_executable(testing 
+add_executable(TUI 
     src/main.cpp
     src/Table.cpp
     src/Vert.cpp
     src/Navy.cpp
-    Test/test.cpp
+    # Test/test.cpp
 )
 
 include_directories(include)
 
-
-
-target_link_libraries(testing
+target_link_libraries(TUI
   PRIVATE gtest_main
   PRIVATE ftxui::screen
   PRIVATE ftxui::dom

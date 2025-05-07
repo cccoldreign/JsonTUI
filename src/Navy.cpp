@@ -17,7 +17,7 @@
 using namespace ftxui;
 using json = nlohmann::json;
 
-ftxui::Component JsonRenderer3::render(const json& json__, std::string& filePath) {
+ftxui::Component Navy::render(const json& json__, std::string& filePath) {
 
     current = json__;
 

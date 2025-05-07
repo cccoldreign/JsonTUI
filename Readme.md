@@ -20,4 +20,4 @@ flag can be:
 --vert-c
 --vert-b
 
-![Alt Text](jsonTab.gif)
+![Alt Text](data/jsonTab.gif)
