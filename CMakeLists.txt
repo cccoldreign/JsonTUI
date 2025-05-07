@@ -54,10 +54,10 @@ enable_testing()
 
 
 add_executable(testing 
-    # src/main.cpp
+    src/main.cpp
     src/Table.cpp
-    # src/Vert.cpp
-    # src/Navy.cpp
+    src/Vert.cpp
+    src/Navy.cpp
     Test/test.cpp
 )
 
