@@ -182,6 +182,7 @@ private:
 public:
     ftxui::Component render(const json& json, std::string& filePath) override;
     int GetSelected() const { return selected; }
+    std::string GetVal() const {return value; }
 };
 
 #endif  
