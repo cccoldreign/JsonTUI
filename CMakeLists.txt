@@ -48,15 +48,15 @@ FetchContent_Declare(
 
 FetchContent_MakeAvailable(googletest)
 
-enable_testing()
+# enable_testing()
 
 add_executable(TUI 
-    # src/main.cpp
+    src/main.cpp
     src/Table.cpp
-    # src/Vert.cpp
-    # src/Navy.cpp
-    Test/TestFileCheck.cpp
-    Test/TestScreen.cpp
+    src/Vert.cpp
+    src/Navy.cpp
+    # Test/TestFileCheck.cpp
+    # Test/TestScreen.cpp
 )
 
 include_directories(include)
@@ -69,5 +69,5 @@ target_link_libraries(TUI
   PRIVATE nlohmann_json::nlohmann_json
 )
 
-add_test(NAME TestFileCheck COMMAND test)
-add_test(NAME TestScreen COMMAND test)
+# add_test(NAME TestFileCheck COMMAND test)
+# add_test(NAME TestScreen COMMAND test)
