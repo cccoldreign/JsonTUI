@@ -71,9 +71,12 @@ int main(int argc, char* argv[]) {
             return 1;
         }
 
-        auto screen = ScreenInteractive::FitComponent();
+        Screen screen(9, 40) ;
         auto component = renderer->render(j, filePath);
-        screen.Loop(component);
+        std::cout << screen.ToString();
+        
+        Render(screen, component->Render());
+        std::cout << screen.ToString();
 
         return 0;
     }
