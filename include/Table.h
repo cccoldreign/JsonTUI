@@ -67,9 +67,11 @@ private:
                 collectKeys(j[0], selections);
             }
         } else {
-            auto it = j.begin();
-            S.valStr = to_string(it.value());
-            selections.push_back(S);
+            if (j.is_primitive()) {
+                S.valStr = j.dump();
+                selections.push_back(S);
+                return;
+            }
         }
     }
     void FillingTabs() {

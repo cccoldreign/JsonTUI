@@ -34,7 +34,7 @@ int main(int argc, char* argv[]) {
         json j;
         file >> j;
         file.close();
-        
+
         std::unique_ptr<JsonRenderer> renderer;
         renderer = std::make_unique<TableJson>();
         auto screen = ScreenInteractive::FitComponent();
@@ -56,7 +56,7 @@ int main(int argc, char* argv[]) {
         json j;
         file >> j;
         file.close();
-        
+
         std::unique_ptr<JsonRenderer> renderer;
         if (flag == "--table") {
             renderer = std::make_unique<TableJson>();
