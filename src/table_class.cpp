@@ -1,31 +1,27 @@
-#ifndef TABLE_H
-#define TABLE_H
-
-#include "JsonRenderer.h"
 #include <fstream>
 #include <string>
 #include <vector>
 #include <memory>
+#include <iostream>
+#include <sstream>
 
-#include <ftxui/component/captured_mouse.hpp>
 #include <ftxui/component/component.hpp>
 #include <ftxui/component/screen_interactive.hpp>
 #include <ftxui/dom/elements.hpp>
+#include <ftxui/component/captured_mouse.hpp>
 
 #include <nlohmann/json.hpp>
 
 using namespace ftxui;
 using json = nlohmann::json;
 
-class TableJson : public JsonRenderer {
-    
-private:
 
-    std::vector<std::string> radiobox = {
-      "integer",
-      "float",
-      "string"
-    };
+class Table {
+private:
+    json jsonCur;
+    std::string path;
+
+    std::vector<std::string> radiobox = {"integer", "float", "string"};
     int selected = 0;
 
     struct Selection {
@@ -74,6 +70,7 @@ private:
             }
         }
     }
+
     void FillingTabs() {
         for (auto &it: selections) {
             cont -> Add(Container::Vertical({
@@ -96,6 +93,7 @@ private:
             Radiobox(&radiobox, &selected)
         }));
     }
+
     void ChangeDown(int column) {
         if (column < selections.size()) {
             Selection S = selections[column];
@@ -108,7 +106,8 @@ private:
             }
         }
     }
-    void ChangeUp(int  ) {
+
+    void ChangeUp(int column) {
         if (column < selections.size()) {
             Selection S = selections[column];
             if (S.selected_index > 0) {
@@ -120,6 +119,7 @@ private:
             }
         }
     }
+
     void changeVal(std::string& key__, std::vector<Selection>& sel__, std::string filePath){
         int ik = sel__.size() - 1;
         sel__[ik].valStr = key__;
@@ -161,16 +161,17 @@ private:
                 } 
             } 
         }
-        std::ofstream file(filePath);
+        std::ofstream file(path);
         if (!file.is_open()) {
             std::cerr << "Failed to open fadsdsadasdasd\n";
         }
         file << sel__[0].current_json.dump(4);
         file.close();
 
-        std::ifstream file2(filePath);
+        std::ifstream file2(path);
+
         if (!file2.is_open()) {
-        std::cerr << "Failed to open file.\n";
+            std::cerr << "Failed to open file.\n";
         }
 
         json j;
@@ -181,11 +182,83 @@ private:
         FillingTabs();
     }
 
+    Component container =
+    Container::Horizontal({
+      cont
+    }) | border | CatchEvent([ & ](Event event) {
+
+      if (event == Event::ArrowDown) {
+        if((selections[column].selected_index < selections[column].keys_json.size() - 1) && (column != selections.size() - 1 ))
+        {
+          cont->DetachAllChildren();
+          ChangeDown(column);
+          FillingTabs();
+        }
+        return false;
+
+      } else if (event == Event::ArrowRight) {
+        if(column < selections.size() - 1){
+          ++column;
+        }
+        return false;
+
+      } else if (event == Event::ArrowLeft) {
+        if(column > 0){
+          --column;
+        }
+        return false;
+
+      } else if (event == Event::ArrowUp) {
+        if((selections[column].selected_index > 0) && (column != selections.size() - 1))
+        {
+          cont->DetachAllChildren();
+          ChangeUp(column);
+          FillingTabs();
+        }
+        return false;
+      } else if (event.is_character()) {
+          return false;
+      } else if ( event == Event::Backspace){
+          return false;
+      } else if ( event == Event::Return){
+        if (value != ""){
+          cont->DetachAllChildren();
+          changeVal(value, selections, path);
+        }
+          return false;
+      }
+      return true;
+    });
+
 public:
-    ftxui::Component render(const json& json, std::string& filePath) override;
+
     int GetSelected() const { return selected; }
     std::string GetVal() const {return value; }
+    Component getComponent(){ return container; };
+
+    void draw(){
+        collectKeys(jsonCur, selections);
+        FillingTabs();
+
+        ScreenInteractive screen = ScreenInteractive::FitComponent();
+        screen.Loop(container);
+
+    };
+
+    Table(std::string& filePath): path(filePath){
+        std::ifstream file(filePath);
+        file >> jsonCur;
+        file.close();
+        draw();
+    }
+
 };
 
-#endif  
+int main(){
+
+    std::string p = "/Users/coldreign/Statistic/ex.json";
+    Table t(p);
+
+    return 0;
+}
 
