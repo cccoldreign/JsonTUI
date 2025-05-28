@@ -9,14 +9,14 @@ set(CMAKE_CXX_STANDARD 20)
 option(ENABLE_COVERAGE "Enable code coverage" OFF)
 
 # Настройка флагов для code coverage
-if(ENABLE_COVERAGE)
-    if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
-        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --coverage -g -O0")
-        set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} --coverage -g -O0")
-        set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} --coverage")
-        #set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} --coverage")
-    endif()
-endif()
+# if(ENABLE_COVERAGE)
+#     if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
+#         set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --coverage -g -O0")
+#         set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} --coverage -g -O0")
+#         set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} --coverage")
+#         #set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} --coverage")
+#     endif()
+# endif()
 #cmake -DCMAKE_CXX_FLAGS="--coverage -g -O0" ..
 
 FetchContent_Declare(json
