@@ -10,7 +10,7 @@ Component TableJson::render(const nlohmann::json& json, std::string& filePath) {
   collectKeys(json, selections);
 
   FillingTabs();
-
+  
   auto container =
     Container::Horizontal({
       cont

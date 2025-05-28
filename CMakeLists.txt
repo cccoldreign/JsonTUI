@@ -71,3 +71,21 @@ target_link_libraries(TUI
 
 # add_test(NAME TestFileCheck COMMAND test)
 # add_test(NAME TestScreen COMMAND test)
+
+# Example.json
+# {
+#     "Globus": {
+#         "hohm": {
+#             "ffsa": 1
+#         },
+#         "ploter": {
+#             "Bebeka": "DDddddddddddD",
+#             "HOmpakt": "Sta",
+#             "ID": 123,
+#             "SortdsdAs": "SGML"
+#         },
+#         "zzz": {
+#             "zzz": "dsad"
+#         }
+#     }
+# }
