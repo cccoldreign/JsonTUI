@@ -131,7 +131,7 @@ private:
             }
         } if (selected == 1) {
            try {
-                newValue = std::stof(key__);
+                newValue = std::stod(key__);
             } catch (const std::exception& e) {
                 throw std::invalid_argument("Ошибка преобразования строки в дробь: " + key__);
             }
