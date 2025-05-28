@@ -3,7 +3,7 @@
         "servlet": [
             {
                 "init-param": {
-                    "cachePackageTagsRefresh": 2,
+                    "cachePackageTagsRefresh": "kek",
                     "cachePackageTagsStore": 200,
                     "cachePackageTagsTrack": 200,
                     "cachePagesDirtyRead": 10,
@@ -19,8 +19,8 @@
                     "configGlossary:poweredByIcon": "/images/cofax.gif",
                     "configGlossary:staticPath": "/content/static",
                     "dataStoreClass": "org.cofax.SqlDataStore",
-                    "dataStoreConnUsageLimit": 100,
-                    "dataStoreDriver": 20,
+                    "dataStoreConnUsageLimit": 2.200000047683716,
+                    "dataStoreDriver": "2.0",
                     "dataStoreInitConns": 10,
                     "dataStoreLogFile": "/usr/local/tomcat/logs/datastore.log",
                     "dataStoreLogLevel": "debug",
@@ -44,7 +44,7 @@
                     "templatePath": "templates",
                     "templateProcessorClass": "org.cofax.WysiwygTemplate",
                     "useDataStore": true,
-                    "useJSP": false
+                    "useJSP": 0.0
                 },
                 "servlet-class": "org.cofax.cds.CDSServlet",
                 "servlet-name": "cofaxCDS"

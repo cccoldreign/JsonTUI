@@ -30,7 +30,7 @@ int main(int argc, char* argv[]) {
             std::cerr << "Failed to open file.n";
             return 1;
         }
-
+        
         json j;
         file >> j;
         file.close();

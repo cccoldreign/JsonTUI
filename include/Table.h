@@ -20,7 +20,7 @@ using json = nlohmann::json;
 class TableJson : public JsonRenderer {
     
 private:
-    friend class TableJsonTest;
+
     std::vector<std::string> radiobox = {
       "integer",
       "float",
